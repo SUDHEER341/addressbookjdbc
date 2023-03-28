@@ -1,5 +1,6 @@
 package com.addressbookjdbc;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 public class AddressBookDBService {
@@ -98,5 +99,7 @@ public class AddressBookDBService {
         System.out.println(addressBookData);
         return addressBookData;
     }
+    public List<AddressBookData> readData(LocalDate startLocalDate, LocalDate endLocalDate) {
+        return addressBookDBService.readData(startLocalDate, endLocalDate);
 
 }
