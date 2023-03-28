@@ -14,7 +14,7 @@ public class AddressBookDBService {
     private Connection getConnection() throws SQLException {
         String jdbcURL = "jdbc:mysql://localhost:3306/AddressBookService1?useSSL=false";
         String username = "root";
-        String password = "Usha@1234";
+        String password = "password";
         Connection con;
         System.out.println("Connecting to database:" + jdbcURL);
         con = DriverManager.getConnection(jdbcURL, username, password);
@@ -103,3 +103,6 @@ public class AddressBookDBService {
         return addressBookDBService.readData(startLocalDate, endLocalDate);
 
 }
+
+    public int readDataBasedOnCity(String function, String city) {
+    }
