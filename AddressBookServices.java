@@ -1,4 +1,5 @@
 package com.addressbookjdbc;
+
 import java.time.LocalDate;
 import java.util.List;
 public class AddressBookServices {
@@ -9,7 +10,7 @@ public class AddressBookServices {
     private List<AddressBookData> addressBookList;
     private static AddressBookDBService addressBookDBService;
 
-    public AddressBookServices() {
+    public void AddressBookService() {
         addressBookDBService = AddressBookDBService.getInstance();
     }
 
@@ -43,6 +44,7 @@ public class AddressBookServices {
         return this.addressBookList.stream().filter(addressBookItem -> addressBookItem.firstName.equals(firstname))
                 .findFirst().orElse(null);
     }
+
     public List<AddressBookData> readAddressBookData(IOService ioService, String start, String end)
             throws AddressBookException {
         LocalDate startLocalDate = LocalDate.parse(start);
@@ -51,4 +53,9 @@ public class AddressBookServices {
             return addressBookDBService.readData(startLocalDate, endLocalDate);
         return this.addressBookList;
     }
+
+    public int readAddressBookData(String function, String city) throws AddressBookException {
+        return addressBookDBService.readDataBasedOnCity(function, city);
+    }
+
 }
